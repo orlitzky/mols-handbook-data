@@ -542,7 +542,7 @@ def lower_bound(order: int) -> int:
     order : int
       The order (also known as the side) for which you'd like a lower
       bound on the number of MOLS instances. In the language of the
-      Handbook, this is ``n``.
+      Handbook, this is ``n``, and it should be between 0 and 9999.
 
     Returns
     -------
