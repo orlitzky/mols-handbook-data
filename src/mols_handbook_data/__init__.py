@@ -23,6 +23,7 @@ the table as printed in the second edition::
 31
 """
 
+_LOWER_BOUNDS: tuple[int, ...]
 _LOWER_BOUNDS = (
  0,0,1,2,3,4,1,6,7,8,2,10,5,12,3,4,15,16,3,18,                            # 0
  4,5,3,22,7,24,4,26,5,28,4,30,31,5,4,5,8,36,4,5,                          # 20
@@ -526,7 +527,7 @@ _LOWER_BOUNDS = (
  30,15,15,66,30,30,30,30,15,30,30,96,30,30,30,30,30,18,15,15              # 9980
 )
 
-def lower_bound(order):
+def lower_bound(order: int) -> int:
     r"""
     Return the best known lower bound on the number of MOLS of
     the given ``order``.
