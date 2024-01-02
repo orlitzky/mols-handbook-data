@@ -1,0 +1,8 @@
+# python -m build
+src/mols_handbook_data.egg-info/
+src/mols_handbook_data/__pycache__/
+dist/
+
+# pip wheel
+build/
+mols_handbook_data-*.whl
