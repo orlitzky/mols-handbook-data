@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mols-handbook-data"
+version = "0.0.1"
+description = "Mutually Orthogonal Latin Squares (MOLS) data from the Handbook of Combinatorial Designs"
+readme = "README.rst"
+requires-python = ">=3.5"
+keywords = ["mathematics", "combinatorics", "mutually-orthogonal Latin squares"]
+license = { file = "COPYING" }
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/sagemath/mols-handbook-data"
+Documentation = "https://github.com/sagemath/mols-handbook-data/blob/master/README.rst"
+Repository = "https://github.com/sagemath/mols-handbook-data.git"
+Issues = "https://github.com/sagemath/mols-handbook-data/issues"
+Changelog = "https://github.com/sagemath/mols-handbook-data/raw/master/NEWS"
