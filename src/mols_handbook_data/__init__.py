@@ -2,28 +2,28 @@ r"""
 Known lower bounds on the number of Mutually Orthogonal Latin
 Squares (MOLS) of a given size.
 
-This module consists entirely of one constant tuple of python integers
-corresponding to Table 3.87 in the Handbook of Combinatorial Designs,
-2nd edition, by Colbourn and Dinitz.
+This module consists (almost) entirely of an internal, constant tuple
+of python integers corresponding to Table 3.87 in the Handbook of
+Combinatorial Designs, 2nd edition, by Colbourn and Dinitz. One public
+function, :func:`lower_bound`, is provided to access it.
 
-::
+Make sure we have all of the entries::
 
 >>> import mols_handbook_data
->>> len(mols_handbook_data.LOWER_BOUNDS)
+>>> len(mols_handbook_data._LOWER_BOUNDS)
 10000
 
 Jeff Dinitz's website (at UVM) provides the following two updates to
 the table as printed in the second edition::
 
->>> from mols_handbook_data import LOWER_BOUNDS
->>> LOWER_BOUNDS[60]
+>>> from mols_handbook_data import lower_bound
+>>> lower_bound(60)
 5
->>> LOWER_BOUNDS[7968]
+>>> lower_bound(7968)
 31
-
 """
 
-LOWER_BOUNDS = (
+_LOWER_BOUNDS = (
  0,0,1,2,3,4,1,6,7,8,2,10,5,12,3,4,15,16,3,18,                            # 0
  4,5,3,22,7,24,4,26,5,28,4,30,31,5,4,5,8,36,4,5,                          # 20
  7,40,5,42,5,6,4,46,8,48,6,5,5,52,5,6,7,7,5,58,                           # 40
@@ -525,8 +525,44 @@ LOWER_BOUNDS = (
  30,30,15,40,30,30,30,9966,15,30,15,58,30,9972,30,30,30,30,30,30,         # 9960
  30,15,15,66,30,30,30,30,15,30,30,96,30,30,30,30,30,18,15,15              # 9980
 )
-"""
-The table of lower bounds; its nth element is a lower bound on the
-number of Mutually Orthogonal Latin Squares (MOLS) of order n. Where
-infinity appears in the table, we have 0 instead.
-"""
+
+def lower_bound(order):
+    r"""
+    Return the best known lower bound on the number of MOLS of
+    the given ``order``.
+
+    The source of this information is Table 3.87 in the Handbook of
+    Combinatorial Designs, 2nd edition, by Colbourn and Dinitz. A few
+    updates have subsequently been provided on Jeff Dinitz's website.
+
+    Parameters
+    ----------
+
+    order : int
+      The order (also known as the side) for which you'd like a lower
+      bound on the number of MOLS instances. In the language of the
+      Handbook, this is ``n``.
+
+    Returns
+    -------
+
+    int
+      A lower bound on the number of MOLS.
+
+    Raises
+    ------
+
+    IndexError
+      If you ask for an order that isn't contained in the table.
+
+    Examples
+    --------
+
+    There are no MOLS of order zero::
+
+        >>> from mols_handbook_data import lower_bound
+        >>> lower_bound(0)
+        0
+
+    """
+    return _LOWER_BOUNDS[order]
