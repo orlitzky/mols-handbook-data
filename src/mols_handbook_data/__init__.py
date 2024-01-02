@@ -9,18 +9,19 @@ function, :func:`lower_bound`, is provided to access it.
 
 Make sure we have all of the entries::
 
->>> import mols_handbook_data
->>> len(mols_handbook_data._LOWER_BOUNDS)
-10000
+    >>> import mols_handbook_data
+    >>> len(mols_handbook_data._LOWER_BOUNDS)
+    10000
 
 Jeff Dinitz's website (at UVM) provides the following two updates to
 the table as printed in the second edition::
 
->>> from mols_handbook_data import lower_bound
->>> lower_bound(60)
-5
->>> lower_bound(7968)
-31
+    >>> from mols_handbook_data import lower_bound
+    >>> lower_bound(60)
+    5
+    >>> lower_bound(7968)
+    31
+
 """
 
 _LOWER_BOUNDS: tuple[int, ...]
